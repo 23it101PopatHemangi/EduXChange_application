@@ -59,14 +59,16 @@
 
 import React from "react"
 import type { Metadata, Viewport } from "next"
-import { Inter, Geist_Mono } from "next/font/google"
+//import { Inter, Geist_Mono } from "next/font/google"
+import { Inter } from "next/font/google"
+
 import { Analytics } from "@vercel/analytics/next"
 import { Toaster } from "@/components/ui/sonner"
 import SWRegister from "./sw-register"   // ✅ ADD THIS
 import "./globals.css"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
-const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono" })
+//const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono" })
 
 export const metadata: Metadata = {
   title: "EduXchange - Academic Resource Exchange",
@@ -112,7 +114,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${geistMono.variable} font-sans antialiased`}>
+      <body className={`${inter.variable}font-sans antialiased`}>
         <SWRegister />   {/* ✅ ADD THIS */}
         {children}
         <Toaster richColors position="top-right" />
