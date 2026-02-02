@@ -3,11 +3,11 @@ import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import Link from 'next/link'
-import { 
-  FileText, 
-  Video, 
-  ImageIcon, 
-  Link as LinkIcon, 
+import {
+  FileText,
+  Video,
+  ImageIcon,
+  Link as LinkIcon,
   StickyNote,
   Plus,
   Eye,
@@ -44,11 +44,7 @@ const resourceTypeColors = {
   link: 'bg-violet-100 text-violet-700',
 }
 
-interface ResourcesPageProps {
-  searchParams: Promise<{ type?: string }>
-}
-
-export default async function ResourcesPage({ searchParams }: ResourcesPageProps) {
+export default async function ResourcesPage({ searchParams }: { type?: string }) {
   const params = await searchParams
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
@@ -126,7 +122,7 @@ export default async function ResourcesPage({ searchParams }: ResourcesPageProps
           {resources.map((resource: Resource) => {
             const Icon = resourceTypeIcons[resource.resource_type] || FileText
             const colorClass = resourceTypeColors[resource.resource_type] || resourceTypeColors.pdf
-            
+
             return (
               <Card key={resource.id} className="border-0 shadow-sm hover:shadow-md transition-shadow group">
                 <CardContent className="p-5">
@@ -158,88 +154,49 @@ export default async function ResourcesPage({ searchParams }: ResourcesPageProps
                           </Link>
                         </DropdownMenuItem>
                         <DropdownMenuSeparator />
-                        <DeleteResourceButton resourceId={resource.id} resourceTitle={resource.title} />
+                        <DeleteResourceButton id={resource.id} />
                       </DropdownMenuContent>
                     </DropdownMenu>
                   </div>
-
-                  <Link href={`/dashboard/resources/${resource.id}`} className="block mt-4">
-                    <h3 className="font-semibold text-lg leading-tight line-clamp-2 hover:text-primary transition-colors">
-                      {resource.title}
-                    </h3>
-                    {resource.description && (
-                      <p className="text-sm text-muted-foreground mt-2 line-clamp-2">
-                        {resource.description}
-                      </p>
-                    )}
-                  </Link>
-
-                  <div className="flex flex-wrap gap-1.5 mt-4">
-                    {resource.subject && (
-                      <Badge variant="outline" className="text-xs">
-                        {resource.subject}
-                      </Badge>
-                    )}
-                    {resource.course_code && (
-                      <Badge variant="outline" className="text-xs">
-                        {resource.course_code}
-                      </Badge>
-                    )}
-                    {!resource.is_public && (
-                      <Badge variant="secondary" className="text-xs">
-                        Private
-                      </Badge>
-                    )}
-                  </div>
-
-                  <div className="flex items-center justify-between mt-4 pt-4 border-t border-border text-sm text-muted-foreground">
-                    <div className="flex items-center gap-3">
-                      <span className="flex items-center gap-1">
-                        <Eye className="h-3.5 w-3.5" />
-                        {resource.view_count}
+                  <div className="mt-4">
+                    <h2 className="text-lg font-semibold text-gray-900">
+                      {resource.name || 'No title available'}
+                    </h2>
+                    <p className="text-sm text-gray-500">
+                      {resource.description || 'No description available'}
+                    </p>
+                    <div className="flex items-center justify-between mt-4">
+                      {resource.url && (
+                        <Button asChild className="bg-blue-600 text-white hover:bg-blue-700">
+                          <Link href={resource.url} target="_blank">
+                            <Eye className="h-5 w-5" />
+                            View
+                          </Link>
+                        </Button>
+                      )}
+                      {resource.url && (
+                        <Button asChild className="bg-green-600 text-white hover:bg-green-700">
+                          <Link href={resource.url} download>
+                            <Download className="h-5 w-5" />
+                            Download
+                          </Link>
+                        </Button>
+                      )}
+                      <span className="text-sm text-gray-500">
+                        {formatFileSize(resource.file_size)}
                       </span>
-                      <span className="flex items-center gap-1">
-                        <Download className="h-3.5 w-3.5" />
-                        {resource.download_count}
+                      <span className="text-sm text-gray-500">
+                        {formatDate(resource.created_at)}
                       </span>
                     </div>
-                    <span className="flex items-center gap-1">
-                      <Calendar className="h-3.5 w-3.5" />
-                      {formatDate(resource.created_at)}
-                    </span>
                   </div>
-
-                  {resource.file_size && (
-                    <p className="text-xs text-muted-foreground mt-2">
-                      {formatFileSize(resource.file_size)}
-                    </p>
-                  )}
                 </CardContent>
               </Card>
             )
           })}
         </div>
       ) : (
-        <Card className="border-0 shadow-sm">
-          <CardContent className="py-16 text-center">
-            <div className="mx-auto w-16 h-16 bg-muted rounded-full flex items-center justify-center mb-4">
-              <FolderOpen className="h-8 w-8 text-muted-foreground" />
-            </div>
-            <h3 className="text-lg font-semibold">No resources found</h3>
-            <p className="text-muted-foreground mt-1 mb-4">
-              {params.type 
-                ? `You haven't uploaded any ${params.type}s yet`
-                : "Get started by uploading your first resource"
-              }
-            </p>
-            <Button asChild>
-              <Link href="/dashboard/upload">
-                <Plus className="h-4 w-4 mr-2" />
-                Upload Resource
-              </Link>
-            </Button>
-          </CardContent>
-        </Card>
+        <p className="text-muted-foreground">No resources found.</p>
       )}
     </div>
   )

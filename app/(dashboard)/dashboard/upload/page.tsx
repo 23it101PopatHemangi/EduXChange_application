@@ -133,11 +133,15 @@ export default function UploadPage() {
         const fileExt = file.name.split('.').pop()
         const filePath = `${user.id}/${Date.now()}.${fileExt}`
 
+        console.log('File Path:', filePath)
+        console.log('User ID:', user.id)
+
         const { error: uploadError } = await supabase.storage
           .from('resources')
           .upload(filePath, file)
 
         if (uploadError) {
+          console.error('Upload error details:', uploadError)
           throw uploadError
         }
 
@@ -145,40 +149,41 @@ export default function UploadPage() {
           .from('resources')
           .getPublicUrl(filePath)
 
+        console.log('Public URL:', publicUrl);
+
         fileUrl = publicUrl
         fileName = file.name
         fileSize = file.size
         mimeType = file.type
       }
 
-      // Create resource record
+      // Insert resource into database
       const { error: insertError } = await supabase
         .from('resources')
         .insert({
           user_id: user.id,
-          title: title.trim(),
-          description: description.trim() || null,
-          resource_type: resourceType,
-          subject: subject.trim() || null,
-          course_code: courseCode.trim() || null,
-          file_url: fileUrl,
+          name: title,
+          description,
+          type: resourceType,
+          url: fileUrl,
           file_name: fileName,
           file_size: fileSize,
           mime_type: mimeType,
-          external_link: externalLink.trim() || null,
+          subject,
+          course_code: courseCode,
           is_public: isPublic,
-          tags: tags.length > 0 ? tags : null,
+          tags,
         })
 
       if (insertError) {
+        console.error('Insert error details:', insertError)
         throw insertError
       }
 
-      toast.success('Resource uploaded successfully!')
-      router.push('/dashboard/resources')
-      router.refresh()
+      toast.success('Resource uploaded successfully')
+      router.push('/dashboard')
     } catch (error) {
-      console.error('Upload error:', error)
+      console.error('Error uploading resource:', error)
       toast.error('Failed to upload resource')
     } finally {
       setIsLoading(false)
