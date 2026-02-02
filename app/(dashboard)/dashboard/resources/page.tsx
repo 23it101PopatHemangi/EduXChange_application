@@ -44,8 +44,7 @@ const resourceTypeColors = {
   link: 'bg-violet-100 text-violet-700',
 }
 
-export default async function ResourcesPage({ searchParams }: { type?: string }) {
-  const params = await searchParams
+export default async function ResourcesPage({ searchParams }: { searchParams: { type?: string } }) {
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
 
@@ -55,8 +54,8 @@ export default async function ResourcesPage({ searchParams }: { type?: string })
     .eq('user_id', user?.id)
     .order('created_at', { ascending: false })
 
-  if (params.type) {
-    query = query.eq('resource_type', params.type)
+  if (searchParams.type) {
+    query = query.eq('resource_type', searchParams.type)
   }
 
   const { data: resources } = await query
@@ -97,7 +96,7 @@ export default async function ResourcesPage({ searchParams }: { type?: string })
       <div className="flex flex-wrap gap-2">
         <Link href="/dashboard/resources">
           <Badge 
-            variant={!params.type ? 'default' : 'secondary'} 
+            variant={!searchParams.type ? 'default' : 'secondary'} 
             className="cursor-pointer px-4 py-2"
           >
             All
@@ -106,7 +105,7 @@ export default async function ResourcesPage({ searchParams }: { type?: string })
         {Object.entries(resourceTypeIcons).map(([type, Icon]) => (
           <Link key={type} href={`/dashboard/resources?type=${type}`}>
             <Badge 
-              variant={params.type === type ? 'default' : 'secondary'} 
+              variant={searchParams.type === type ? 'default' : 'secondary'} 
               className="cursor-pointer px-4 py-2 gap-1.5 capitalize"
             >
               <Icon className="h-3.5 w-3.5" />
@@ -154,7 +153,9 @@ export default async function ResourcesPage({ searchParams }: { type?: string })
                           </Link>
                         </DropdownMenuItem>
                         <DropdownMenuSeparator />
-                        <DeleteResourceButton id={resource.id} />
+                        <DropdownMenuItem asChild>
+                          <DeleteResourceButton resourceId={resource.id} />
+                        </DropdownMenuItem>
                       </DropdownMenuContent>
                     </DropdownMenu>
                   </div>
@@ -166,17 +167,17 @@ export default async function ResourcesPage({ searchParams }: { type?: string })
                       {resource.description || 'No description available'}
                     </p>
                     <div className="flex items-center justify-between mt-4">
-                      {resource.url && (
+                      {resource.resource_url && (
                         <Button asChild className="bg-blue-600 text-white hover:bg-blue-700">
-                          <Link href={resource.url} target="_blank">
+                          <Link href={resource.resource_url} target="_blank">
                             <Eye className="h-5 w-5" />
                             View
                           </Link>
                         </Button>
                       )}
-                      {resource.url && (
+                      {resource.resource_url && (
                         <Button asChild className="bg-green-600 text-white hover:bg-green-700">
-                          <Link href={resource.url} download>
+                          <Link href={resource.resource_url} download>
                             <Download className="h-5 w-5" />
                             Download
                           </Link>
