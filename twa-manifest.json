@@ -1,9 +1,9 @@
 {
-  "packageId": "app.vercel.eduxchange_app.twa",
+  "packageId": "app.eduxchange.twa",
   "host": "edu-x-change-application.vercel.app",
-  "name": "EduXchange",
-  "launcherName": "EduX",
-  "display": "standalone",
+  "name": "EduXChange",
+  "launcherName": "EduXChange",
+  "display": "fullscreen",
   "themeColor": "#2563EB",
   "themeColorDark": "#000000",
   "navigationColor": "#000000",
