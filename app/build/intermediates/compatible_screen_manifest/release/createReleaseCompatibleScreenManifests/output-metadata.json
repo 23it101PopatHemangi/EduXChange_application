@@ -4,7 +4,7 @@
     "type": "COMPATIBLE_SCREEN_MANIFEST",
     "kind": "Directory"
   },
-  "applicationId": "app.vercel.eduxchange_app.twa",
+  "applicationId": "app.eduxchange.twa",
   "variantName": "release",
   "elements": []
 }

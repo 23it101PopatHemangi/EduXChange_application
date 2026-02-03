@@ -4,15 +4,15 @@
     "type": "LINKED_RESOURCES_BINARY_FORMAT",
     "kind": "Directory"
   },
-  "applicationId": "app.vercel.eduxchange_app.twa",
+  "applicationId": "app.eduxchange.twa",
   "variantName": "release",
   "elements": [
     {
       "type": "SINGLE",
       "filters": [],
       "attributes": [],
-      "versionCode": 3,
-      "versionName": "3",
+      "versionCode": 4,
+      "versionName": "4",
       "outputFile": "linked-resources-binary-format-release.ap_"
     }
   ],

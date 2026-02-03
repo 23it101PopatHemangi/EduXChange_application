@@ -3,8 +3,8 @@
 # min_api: 21
 # common_typos_disable
 # {"id":"com.android.tools.r8.mapping","version":"2.2"}
-# pg_map_id: c34164b
-# pg_map_hash: SHA-256 c34164bc75a646c7872dc61044bd50d17e4c1f9b67d441efaaa541b646a23a1e
+# pg_map_id: 3a49516
+# pg_map_hash: SHA-256 3a49516eb162e7f4988f5362032b290d9ee42e7c9a5576338207fb3f5835649d
 android.support.customtabs.ICustomTabsCallback -> a.a:
 # {"id":"sourceFile","fileName":"ICustomTabsCallback.java"}
     java.lang.String DESCRIPTOR -> a
@@ -22694,15 +22694,15 @@ androidx.versionedparcelable.VersionedParcelParcel -> androidx.versionedparcelab
     1:6:void writeBoolean(boolean):181:181 -> y
 androidx.versionedparcelable.VersionedParcelable -> H.a:
 # {"id":"sourceFile","fileName":"VersionedParcelable.java"}
-app.vercel.eduxchange_app.twa.Application -> app.vercel.eduxchange_app.twa.Application:
+app.eduxchange.twa.Application -> app.eduxchange.twa.Application:
 # {"id":"sourceFile","fileName":"Application.java"}
     1:4:void <init>():20:20 -> <init>
     1:4:void onCreate():26:26 -> onCreate
-app.vercel.eduxchange_app.twa.DelegationService -> app.vercel.eduxchange_app.twa.DelegationService:
+app.eduxchange.twa.DelegationService -> app.eduxchange.twa.DelegationService:
 # {"id":"sourceFile","fileName":"DelegationService.java"}
     1:4:void <init>():5:5 -> <init>
     1:4:void onCreate():9:9 -> onCreate
-app.vercel.eduxchange_app.twa.LauncherActivity -> app.vercel.eduxchange_app.twa.LauncherActivity:
+app.eduxchange.twa.LauncherActivity -> app.eduxchange.twa.LauncherActivity:
 # {"id":"sourceFile","fileName":"LauncherActivity.java"}
     1:4:void <init>():25:25 -> <init>
     1:5:android.net.Uri getLaunchingUrl():48:48 -> i

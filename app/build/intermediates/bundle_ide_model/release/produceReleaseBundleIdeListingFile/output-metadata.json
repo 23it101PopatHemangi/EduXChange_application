@@ -4,7 +4,7 @@
     "type": "BUNDLE",
     "kind": "RegularFile"
   },
-  "applicationId": "app.vercel.eduxchange_app.twa",
+  "applicationId": "app.eduxchange.twa",
   "variantName": "release",
   "elements": [
     {

@@ -1,4 +1,4 @@
-package app.vercel.eduxchange_app.twa;
+package app.eduxchange.twa;
 
 
 
