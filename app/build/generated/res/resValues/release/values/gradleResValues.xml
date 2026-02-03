@@ -28,13 +28,13 @@
     <!-- Value from default config. -->
     <string name="fallbackType" translatable="false">customtabs</string>
     <!-- Value from default config. -->
-    <string name="fullScopeUrl" translatable="false">https://eduxchange-app.vercel.app/</string>
+    <string name="fullScopeUrl" translatable="false">https://edu-x-change-application.vercel.app/</string>
     <!-- Value from default config. -->
     <string name="generatorApp" translatable="false">bubblewrap-cli</string>
     <!-- Value from default config. -->
-    <string name="hostName" translatable="false">eduxchange-app.vercel.app</string>
+    <string name="hostName" translatable="false">edu-x-change-application.vercel.app</string>
     <!-- Value from default config. -->
-    <string name="launchUrl" translatable="false">https://eduxchange-app.vercel.app/</string>
+    <string name="launchUrl" translatable="false">https://edu-x-change-application.vercel.app/</string>
     <!-- Value from default config. -->
     <string name="launcherName" translatable="false">EduX</string>
     <!-- Value from default config. -->
@@ -42,6 +42,6 @@
     <!-- Value from default config. -->
     <string name="providerAuthority" translatable="false">app.vercel.eduxchange_app.twa.fileprovider</string>
     <!-- Value from default config. -->
-    <string name="webManifestUrl" translatable="false">https://eduxchange-app.vercel.app/manifest.json</string>
+    <string name="webManifestUrl" translatable="false">https://edu-x-change-application.vercel.app/manifest.json</string>
 
 </resources>

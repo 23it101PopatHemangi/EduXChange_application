@@ -19,7 +19,6 @@ import {
   ExternalLink,
   Clock,
   Tag,
-  User,
   BookOpen,
   Globe,
   Lock,
@@ -120,7 +119,7 @@ export default async function ResourceDetailPage({ params }: ResourceDetailPageP
             </div>
           </div>
         </div>
-        <Button asChild className="gap-2">
+        <Button asChild className="gap-2 bg-gradient-to-r from-primary to-primary/80 text-white hover:from-primary/90 hover:to-primary/70 shadow-lg">
           <Link href={`/dashboard/resources/${id}/edit`}>
             <Pencil className="h-4 w-4" />
             Edit Resource
@@ -133,7 +132,7 @@ export default async function ResourceDetailPage({ params }: ResourceDetailPageP
         <div className="lg:col-span-2 space-y-6">
           {/* Description */}
           {resource.description && (
-            <Card className="border-0 shadow-sm">
+            <Card className="border-0 shadow-sm bg-gradient-to-br from-background to-muted/30">
               <CardHeader>
                 <CardTitle className="text-lg">Description</CardTitle>
               </CardHeader>
@@ -146,7 +145,7 @@ export default async function ResourceDetailPage({ params }: ResourceDetailPageP
           )}
 
           {/* File/Link Preview */}
-          <Card className="border-0 shadow-sm">
+          <Card className="border-0 shadow-sm bg-gradient-to-br from-background to-muted/30">
             <CardHeader>
               <CardTitle className="text-lg">Resource</CardTitle>
             </CardHeader>
@@ -183,7 +182,7 @@ export default async function ResourceDetailPage({ params }: ResourceDetailPageP
                         )}
                       </div>
                     </div>
-                    <Button asChild>
+                    <Button asChild className="gap-2">
                       <a href={resource.file_url} download target="_blank" rel="noopener noreferrer">
                         <Download className="h-4 w-4 mr-2" />
                         Download
@@ -197,7 +196,7 @@ export default async function ResourceDetailPage({ params }: ResourceDetailPageP
                     <LinkIcon className="h-5 w-5 text-muted-foreground shrink-0" />
                     <p className="text-sm truncate">{resource.external_link}</p>
                   </div>
-                  <Button asChild>
+                  <Button asChild className="gap-2">
                     <a href={resource.external_link} target="_blank" rel="noopener noreferrer">
                       <ExternalLink className="h-4 w-4 mr-2" />
                       Open Link
@@ -212,7 +211,7 @@ export default async function ResourceDetailPage({ params }: ResourceDetailPageP
 
           {/* Tags */}
           {resource.tags && resource.tags.length > 0 && (
-            <Card className="border-0 shadow-sm">
+            <Card className="border-0 shadow-sm bg-gradient-to-br from-background to-muted/30">
               <CardHeader>
                 <CardTitle className="text-lg flex items-center gap-2">
                   <Tag className="h-5 w-5" />
@@ -235,7 +234,7 @@ export default async function ResourceDetailPage({ params }: ResourceDetailPageP
         {/* Sidebar */}
         <div className="space-y-6">
           {/* Stats */}
-          <Card className="border-0 shadow-sm">
+          <Card className="border-0 shadow-sm bg-gradient-to-br from-background to-muted/30">
             <CardHeader>
               <CardTitle className="text-lg">Statistics</CardTitle>
             </CardHeader>
@@ -258,7 +257,7 @@ export default async function ResourceDetailPage({ params }: ResourceDetailPageP
           </Card>
 
           {/* Details */}
-          <Card className="border-0 shadow-sm">
+          <Card className="border-0 shadow-sm bg-gradient-to-br from-background to-muted/30">
             <CardHeader>
               <CardTitle className="text-lg">Details</CardTitle>
             </CardHeader>

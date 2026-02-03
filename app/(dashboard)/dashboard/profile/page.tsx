@@ -191,14 +191,14 @@ export default function ProfilePage() {
   return (
     <div className="max-w-3xl mx-auto space-y-8">
       <div>
-        <h1 className="text-3xl font-bold tracking-tight">Profile</h1>
+        <h1 className="text-3xl font-bold tracking-tight text-foreground">Profile</h1>
         <p className="text-muted-foreground mt-1">
           Manage your account information and preferences
         </p>
       </div>
 
       {/* Profile Header Card */}
-      <Card className="border-0 shadow-sm overflow-hidden">
+      <Card className="border-0 shadow-sm overflow-hidden bg-gradient-to-br from-background to-muted/30">
         <div className="h-24 bg-gradient-to-r from-primary/80 to-accent/80" />
         <CardContent className="relative pt-0 pb-6">
           <div className="flex flex-col sm:flex-row sm:items-end gap-4 -mt-12">
@@ -238,7 +238,7 @@ export default function ProfilePage() {
 
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Personal Information */}
-        <Card className="border-0 shadow-sm">
+        <Card className="border-0 shadow-sm bg-gradient-to-br from-background to-muted/30">
           <CardHeader>
             <CardTitle className="text-lg flex items-center gap-2">
               <User className="h-5 w-5" />
@@ -287,7 +287,7 @@ export default function ProfilePage() {
         </Card>
 
         {/* Academic Information */}
-        <Card className="border-0 shadow-sm">
+        <Card className="border-0 shadow-sm bg-gradient-to-br from-background to-muted/30">
           <CardHeader>
             <CardTitle className="text-lg flex items-center gap-2">
               <GraduationCap className="h-5 w-5" />
@@ -344,7 +344,7 @@ export default function ProfilePage() {
 
         {/* Submit */}
         <div className="flex justify-end">
-          <Button type="submit" disabled={isSaving} className="min-w-[200px]">
+          <Button type="submit" disabled={isSaving} className="min-w-[200px] bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 shadow-lg">
             {isSaving ? (
               <>
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />

@@ -196,7 +196,7 @@ export default function UploadPage() {
   return (
     <div className="max-w-3xl mx-auto space-y-8">
       <div>
-        <h1 className="text-3xl font-bold tracking-tight">Upload Resource</h1>
+        <h1 className="text-3xl font-bold tracking-tight text-foreground">Upload Resource</h1>
         <p className="text-muted-foreground mt-1">
           Share your academic materials with the community
         </p>
@@ -204,7 +204,7 @@ export default function UploadPage() {
 
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Resource Type Selection */}
-        <Card className="border-0 shadow-sm">
+        <Card className="border-0 shadow-sm bg-gradient-to-br from-background to-muted/30">
           <CardHeader>
             <CardTitle className="text-lg">Resource Type</CardTitle>
             <CardDescription>What type of resource are you sharing?</CardDescription>
@@ -233,7 +233,7 @@ export default function UploadPage() {
         </Card>
 
         {/* Basic Information */}
-        <Card className="border-0 shadow-sm">
+        <Card className="border-0 shadow-sm bg-gradient-to-br from-background to-muted/30">
           <CardHeader>
             <CardTitle className="text-lg">Basic Information</CardTitle>
             <CardDescription>Provide details about your resource</CardDescription>
@@ -289,7 +289,7 @@ export default function UploadPage() {
 
         {/* File Upload or Link */}
         {needsFile && (
-          <Card className="border-0 shadow-sm">
+          <Card className="border-0 shadow-sm bg-gradient-to-br from-background to-muted/30">
             <CardHeader>
               <CardTitle className="text-lg">Upload File</CardTitle>
               <CardDescription>
@@ -349,7 +349,7 @@ export default function UploadPage() {
         )}
 
         {needsLink && (
-          <Card className="border-0 shadow-sm">
+          <Card className="border-0 shadow-sm bg-gradient-to-br from-background to-muted/30">
             <CardHeader>
               <CardTitle className="text-lg">External Link</CardTitle>
               <CardDescription>
@@ -373,7 +373,7 @@ export default function UploadPage() {
         )}
 
         {/* Tags */}
-        <Card className="border-0 shadow-sm">
+        <Card className="border-0 shadow-sm bg-gradient-to-br from-background to-muted/30">
           <CardHeader>
             <CardTitle className="text-lg">Tags</CardTitle>
             <CardDescription>Add up to 5 tags to help others find your resource</CardDescription>
@@ -419,7 +419,7 @@ export default function UploadPage() {
         </Card>
 
         {/* Visibility */}
-        <Card className="border-0 shadow-sm">
+        <Card className="border-0 shadow-sm bg-gradient-to-br from-background to-muted/30">
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
@@ -448,7 +448,7 @@ export default function UploadPage() {
           >
             Cancel
           </Button>
-          <Button type="submit" disabled={isLoading} className="flex-1 sm:flex-none sm:min-w-[200px]">
+          <Button type="submit" disabled={isLoading} className="flex-1 sm:flex-none sm:min-w-[200px] bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 shadow-lg">
             {isLoading ? (
               <>
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />

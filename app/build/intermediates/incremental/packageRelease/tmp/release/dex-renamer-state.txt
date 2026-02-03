@@ -1,4 +1,4 @@
-#Mon Feb 02 02:25:23 IST 2026
-base.0=C\:\\Users\\Hemangi\\Downloads\\EDUXCHANGE\\app\\build\\intermediates\\dex\\release\\minifyReleaseWithR8\\classes.dex
+#Tue Feb 03 18:42:23 UTC 2026
+base.0=/workspaces/EduXChange_application/app/build/intermediates/dex/release/minifyReleaseWithR8/classes.dex
 renamed.0=classes.dex
 path.0=classes.dex

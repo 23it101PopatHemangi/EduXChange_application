@@ -7677,9 +7677,6 @@ app.vercel.eduxchange_app.twa.R$raw
 app.vercel.eduxchange_app.twa.R$string
 app.vercel.eduxchange_app.twa.R$xml
 app.vercel.eduxchange_app.twa.R
-com.eduxchange.app.Application
-com.eduxchange.app.DelegationService
-com.eduxchange.app.LauncherActivity
 com.google.androidbrowserhelper.BuildConfig
 com.google.androidbrowserhelper.R$drawable:
     private void <init>()

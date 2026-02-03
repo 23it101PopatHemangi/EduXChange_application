@@ -157,7 +157,7 @@ export default function EditResourcePage({ params }: EditResourcePageProps) {
       </Button>
 
       <div>
-        <h1 className="text-3xl font-bold tracking-tight">Edit Resource</h1>
+        <h1 className="text-3xl font-bold tracking-tight text-foreground">Edit Resource</h1>
         <p className="text-muted-foreground mt-1">
           Update your resource information
         </p>
@@ -165,7 +165,7 @@ export default function EditResourcePage({ params }: EditResourcePageProps) {
 
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Resource Type (Read-only) */}
-        <Card className="border-0 shadow-sm">
+        <Card className="border-0 shadow-sm bg-gradient-to-br from-background to-muted/30">
           <CardHeader>
             <CardTitle className="text-lg">Resource Type</CardTitle>
             <CardDescription>Resource type cannot be changed</CardDescription>
@@ -179,7 +179,7 @@ export default function EditResourcePage({ params }: EditResourcePageProps) {
         </Card>
 
         {/* Basic Information */}
-        <Card className="border-0 shadow-sm">
+        <Card className="border-0 shadow-sm bg-gradient-to-br from-background to-muted/30">
           <CardHeader>
             <CardTitle className="text-lg">Basic Information</CardTitle>
             <CardDescription>Update details about your resource</CardDescription>
@@ -235,7 +235,7 @@ export default function EditResourcePage({ params }: EditResourcePageProps) {
 
         {/* External Link (if applicable) */}
         {(resource.resource_type === 'video' || resource.resource_type === 'link') && (
-          <Card className="border-0 shadow-sm">
+          <Card className="border-0 shadow-sm bg-gradient-to-br from-background to-muted/30">
             <CardHeader>
               <CardTitle className="text-lg">External Link</CardTitle>
               <CardDescription>Update the resource URL</CardDescription>
@@ -257,7 +257,7 @@ export default function EditResourcePage({ params }: EditResourcePageProps) {
         )}
 
         {/* Tags */}
-        <Card className="border-0 shadow-sm">
+        <Card className="border-0 shadow-sm bg-gradient-to-br from-background to-muted/30">
           <CardHeader>
             <CardTitle className="text-lg">Tags</CardTitle>
             <CardDescription>Add up to 5 tags to help others find your resource</CardDescription>
@@ -303,7 +303,7 @@ export default function EditResourcePage({ params }: EditResourcePageProps) {
         </Card>
 
         {/* Visibility */}
-        <Card className="border-0 shadow-sm">
+        <Card className="border-0 shadow-sm bg-gradient-to-br from-background to-muted/30">
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
@@ -332,7 +332,7 @@ export default function EditResourcePage({ params }: EditResourcePageProps) {
           >
             Cancel
           </Button>
-          <Button type="submit" disabled={isSaving} className="flex-1 sm:flex-none sm:min-w-[200px]">
+          <Button type="submit" disabled={isSaving} className="flex-1 sm:flex-none sm:min-w-[200px] bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 shadow-lg">
             {isSaving ? (
               <>
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />

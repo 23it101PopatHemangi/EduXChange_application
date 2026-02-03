@@ -42,8 +42,13 @@ export function DashboardHeader({ user, profile }: HeaderProps) {
 
   return (
     <header className="sticky top-0 z-30 flex h-16 items-center gap-4 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 px-6 lg:px-8">
-      {/* Spacer for mobile menu button */}
-      <div className="w-10 lg:hidden" />
+      {/* App Logo & Name */}
+      <div className="flex items-center gap-2">
+        <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+          <span className="text-white font-bold text-sm">EX</span>
+        </div>
+        <span className="font-bold text-sm">EduXchange</span>
+      </div>
 
       {/* Search */}
       <div className="relative flex-1 max-w-md">

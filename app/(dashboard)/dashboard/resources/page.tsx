@@ -12,11 +12,9 @@ import {
   Plus,
   Eye,
   Download,
-  Calendar,
   FolderOpen,
   MoreHorizontal,
   Pencil,
-  Trash2,
 } from 'lucide-react'
 import {
   DropdownMenu,
@@ -79,12 +77,12 @@ export default async function ResourcesPage({ searchParams }: { searchParams: { 
     <div className="space-y-8">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight">My Resources</h1>
+          <h1 className="text-3xl font-bold tracking-tight text-foreground">My Resources</h1>
           <p className="text-muted-foreground mt-1">
             Manage all your uploaded academic materials
           </p>
         </div>
-        <Button asChild className="gap-2">
+        <Button asChild className="gap-2 bg-gradient-to-r from-primary to-primary/80 text-white hover:from-primary/90 hover:to-primary/70 h-11 px-5 shadow-lg">
           <Link href="/dashboard/upload">
             <Plus className="h-4 w-4" />
             Upload Resource
@@ -97,7 +95,7 @@ export default async function ResourcesPage({ searchParams }: { searchParams: { 
         <Link href="/dashboard/resources">
           <Badge 
             variant={!searchParams.type ? 'default' : 'secondary'} 
-            className="cursor-pointer px-4 py-2"
+            className="cursor-pointer px-4 py-2 rounded-full"
           >
             All
           </Badge>
@@ -106,7 +104,7 @@ export default async function ResourcesPage({ searchParams }: { searchParams: { 
           <Link key={type} href={`/dashboard/resources?type=${type}`}>
             <Badge 
               variant={searchParams.type === type ? 'default' : 'secondary'} 
-              className="cursor-pointer px-4 py-2 gap-1.5 capitalize"
+              className="cursor-pointer px-4 py-2 rounded-full gap-1.5 capitalize"
             >
               <Icon className="h-3.5 w-3.5" />
               {type}s
@@ -123,7 +121,7 @@ export default async function ResourcesPage({ searchParams }: { searchParams: { 
             const colorClass = resourceTypeColors[resource.resource_type] || resourceTypeColors.pdf
 
             return (
-              <Card key={resource.id} className="border-0 shadow-sm hover:shadow-md transition-shadow group">
+              <Card key={resource.id} className="border-0 shadow-sm hover:shadow-md transition-all duration-200 group bg-gradient-to-br from-background to-muted/30">
                 <CardContent className="p-5">
                   <div className="flex items-start justify-between gap-4">
                     <div className={`p-3 rounded-lg shrink-0 ${colorClass}`}>
@@ -160,35 +158,35 @@ export default async function ResourcesPage({ searchParams }: { searchParams: { 
                     </DropdownMenu>
                   </div>
                   <div className="mt-4">
-                    <h2 className="text-lg font-semibold text-gray-900">
+                    <h2 className="text-lg font-semibold text-foreground">
                       {resource.title || 'No title available'}
                     </h2>
-                    <p className="text-sm text-gray-500">
+                    <p className="text-sm text-muted-foreground">
                       {resource.description || 'No description available'}
                     </p>
                     <div className="flex items-center justify-between mt-4">
-                      {resource.file_url && (
-                        <Button asChild className="bg-blue-600 text-white hover:bg-blue-700">
-                          <Link href={resource.file_url} target="_blank">
-                            <Eye className="h-5 w-5" />
-                            View
-                          </Link>
-                        </Button>
-                      )}
-                      {resource.file_url && (
-                        <Button asChild className="bg-green-600 text-white hover:bg-green-700">
-                          <Link href={resource.file_url} download>
-                            <Download className="h-5 w-5" />
-                            Download
-                          </Link>
-                        </Button>
-                      )}
-                      <span className="text-sm text-gray-500">
-                        {formatFileSize(resource.file_size)}
-                      </span>
-                      <span className="text-sm text-gray-500">
-                        {formatDate(resource.created_at)}
-                      </span>
+                      <div className="flex items-center gap-2">
+                        {resource.file_url && (
+                          <Button asChild size="sm" variant="secondary" className="gap-2">
+                            <Link href={resource.file_url} target="_blank">
+                              <Eye className="h-4 w-4" />
+                              View
+                            </Link>
+                          </Button>
+                        )}
+                        {resource.file_url && (
+                          <Button asChild size="sm" variant="outline" className="gap-2">
+                            <Link href={resource.file_url} download>
+                              <Download className="h-4 w-4" />
+                              Download
+                            </Link>
+                          </Button>
+                        )}
+                      </div>
+                      <div className="text-xs text-muted-foreground text-right">
+                        <div>{formatFileSize(resource.file_size)}</div>
+                        <div>{formatDate(resource.created_at)}</div>
+                      </div>
                     </div>
                   </div>
                 </CardContent>
@@ -197,7 +195,18 @@ export default async function ResourcesPage({ searchParams }: { searchParams: { 
           })}
         </div>
       ) : (
-        <p className="text-muted-foreground">No resources found.</p>
+        <Card className="border-0 shadow-sm bg-muted/30">
+          <CardContent className="py-12 text-center">
+            <div className="mx-auto w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+              <FolderOpen className="h-7 w-7 text-primary/60" />
+            </div>
+            <p className="text-foreground font-semibold">No resources found</p>
+            <p className="text-sm text-muted-foreground mt-1">Upload your first resource to get started</p>
+            <Button asChild className="mt-5">
+              <Link href="/dashboard/upload">Upload Resource</Link>
+            </Button>
+          </CardContent>
+        </Card>
       )}
     </div>
   )

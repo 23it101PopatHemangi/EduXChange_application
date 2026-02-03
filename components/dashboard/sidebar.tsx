@@ -67,9 +67,13 @@ function SidebarContent({ user, profile, onClose }: SidebarProps & { onClose?: (
   return (
     <div className="flex h-full flex-col bg-sidebar">
       {/* Logo */}
-      <div className="flex h-16 items-center gap-2 px-6 border-b border-sidebar-border">
-        <div className="w-9 h-9 bg-primary rounded-xl flex items-center justify-center">
-          <BookOpen className="w-5 h-5 text-primary-foreground" />
+      <div className="flex h-16 items-center gap-3 px-6 border-b border-sidebar-border">
+        <div className="w-10 h-10 bg-gradient-to-br from-primary to-primary/80 rounded-lg flex items-center justify-center shadow-lg">
+          <span className="text-white font-bold">EX</span>
+        </div>
+        <div className="flex-1">
+          <p className="font-bold text-sm text-foreground">EduXchange</p>
+          <p className="text-xs text-muted-foreground">Learning Platform</p>
         </div>
         <span className="text-xl font-bold text-sidebar-foreground">EduXchange</span>
       </div>
