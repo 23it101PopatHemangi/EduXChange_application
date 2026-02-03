@@ -154,30 +154,30 @@ export default async function ResourcesPage({ searchParams }: { searchParams: { 
                         </DropdownMenuItem>
                         <DropdownMenuSeparator />
                         <DropdownMenuItem asChild>
-                          <DeleteResourceButton resourceId={resource.id} resourceTitle={resource.name || 'Untitled Resource'} />
+                          <DeleteResourceButton resourceId={resource.id} resourceTitle={resource.title || 'Untitled Resource'} />
                         </DropdownMenuItem>
                       </DropdownMenuContent>
                     </DropdownMenu>
                   </div>
                   <div className="mt-4">
                     <h2 className="text-lg font-semibold text-gray-900">
-                      {resource.name || 'No title available'}
+                      {resource.title || 'No title available'}
                     </h2>
                     <p className="text-sm text-gray-500">
                       {resource.description || 'No description available'}
                     </p>
                     <div className="flex items-center justify-between mt-4">
-                      {resource.resource_url && (
+                      {resource.file_url && (
                         <Button asChild className="bg-blue-600 text-white hover:bg-blue-700">
-                          <Link href={resource.resource_url} target="_blank">
+                          <Link href={resource.file_url} target="_blank">
                             <Eye className="h-5 w-5" />
                             View
                           </Link>
                         </Button>
                       )}
-                      {resource.resource_url && (
+                      {resource.file_url && (
                         <Button asChild className="bg-green-600 text-white hover:bg-green-700">
-                          <Link href={resource.resource_url} download>
+                          <Link href={resource.file_url} download>
                             <Download className="h-5 w-5" />
                             Download
                           </Link>
