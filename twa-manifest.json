@@ -1,9 +1,9 @@
 {
-  "packageId": "app.eduxchange.twa",
+  "packageId": "app.vercel.eduxchange_app.twa",
   "host": "edu-x-change-application.vercel.app",
-  "name": "EduXChange",
-  "launcherName": "EduXChange",
-  "display": "fullscreen",
+  "name": "EduXchange",
+  "launcherName": "EduX",
+  "display": "standalone",
   "themeColor": "#2563EB",
   "themeColorDark": "#000000",
   "navigationColor": "#000000",
@@ -19,8 +19,8 @@
     "path": "./android.keystore",
     "alias": "eduxchange"
   },
-  "appVersionName": "4",
-  "appVersionCode": 4,
+  "appVersionName": "3",
+  "appVersionCode": 3,
   "shortcuts": [],
   "generatorApp": "bubblewrap-cli",
   "webManifestUrl": "https://edu-x-change-application.vercel.app/manifest.json",
@@ -42,5 +42,5 @@
   "fileHandlers": [],
   "launchHandlerClientMode": "",
   "displayOverride": [],
-  "appVersion": "4"
+  "appVersion": "3"
 }

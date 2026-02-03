@@ -7668,15 +7668,15 @@ androidx.viewpager.widget.ViewPager$SavedState
 androidx.viewpager.widget.ViewPager$SimpleOnPageChangeListener
 androidx.viewpager.widget.ViewPager$ViewPositionComparator
 androidx.viewpager.widget.ViewPager
-app.eduxchange.twa.R$bool
-app.eduxchange.twa.R$color
-app.eduxchange.twa.R$drawable
-app.eduxchange.twa.R$integer
-app.eduxchange.twa.R$mipmap
-app.eduxchange.twa.R$raw
-app.eduxchange.twa.R$string
-app.eduxchange.twa.R$xml
-app.eduxchange.twa.R
+app.vercel.eduxchange_app.twa.R$bool
+app.vercel.eduxchange_app.twa.R$color
+app.vercel.eduxchange_app.twa.R$drawable
+app.vercel.eduxchange_app.twa.R$integer
+app.vercel.eduxchange_app.twa.R$mipmap
+app.vercel.eduxchange_app.twa.R$raw
+app.vercel.eduxchange_app.twa.R$string
+app.vercel.eduxchange_app.twa.R$xml
+app.vercel.eduxchange_app.twa.R
 com.google.androidbrowserhelper.BuildConfig
 com.google.androidbrowserhelper.R$drawable:
     private void <init>()

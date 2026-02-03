@@ -11,7 +11,7 @@
     <color name="navigationDividerColorDark">#000000</color>
     <color name="shortcut_background">#F5F5F5</color>
     <integer name="splashScreenFadeOutDuration">300</integer>
-    <string name="appName" translatable="false">EduXChange</string>
+    <string name="appName" translatable="false">EduXchange</string>
     <string name="assetStatements">
     [{
         \"relation\": [\"delegate_permission/common.handle_all_urls\"],
@@ -27,8 +27,8 @@
     <string name="generatorApp" translatable="false">bubblewrap-cli</string>
     <string name="hostName" translatable="false">edu-x-change-application.vercel.app</string>
     <string name="launchUrl" translatable="false">https://edu-x-change-application.vercel.app/</string>
-    <string name="launcherName" translatable="false">EduXChange</string>
+    <string name="launcherName" translatable="false">EduX</string>
     <string name="orientation" translatable="false">default</string>
-    <string name="providerAuthority" translatable="false">app.eduxchange.twa.fileprovider</string>
+    <string name="providerAuthority" translatable="false">app.vercel.eduxchange_app.twa.fileprovider</string>
     <string name="webManifestUrl" translatable="false">https://edu-x-change-application.vercel.app/manifest.json</string>
 </resources>
