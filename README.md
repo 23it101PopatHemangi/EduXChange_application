@@ -1,11 +1,3 @@
-Perfect 😄
-Here’s a **🔥 top-tier, resume-grade, recruiter-impressing README** with **badges, visuals, structure, and storytelling**.
-This is the kind of README that **gets stars** ⭐ and looks amazing on **GitHub + LinkedIn + college submissions**.
-
-👉 **Copy–paste directly into `README.md`**
-
----
-
 ````markdown
 <p align="center">
   <img src="https://raw.githubusercontent.com/vercel/vercel/main/packages/frameworks/logos/nextjs.svg" width="90" />
