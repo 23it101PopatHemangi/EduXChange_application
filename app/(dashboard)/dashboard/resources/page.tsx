@@ -154,7 +154,7 @@ export default async function ResourcesPage({ searchParams }: { searchParams: { 
                         </DropdownMenuItem>
                         <DropdownMenuSeparator />
                         <DropdownMenuItem asChild>
-                          <DeleteResourceButton resourceId={resource.id} resourceTitle={resource.name || 'No title available'} />
+                          <DeleteResourceButton resourceId={resource.id} resourceTitle={resource.name || 'Untitled Resource'} />
                         </DropdownMenuItem>
                       </DropdownMenuContent>
                     </DropdownMenu>
