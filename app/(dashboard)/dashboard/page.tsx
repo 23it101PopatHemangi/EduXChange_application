@@ -62,24 +62,30 @@ export default async function DashboardPage() {
           <h2 className="text-2xl font-bold tracking-tight text-foreground">Recent Resources</h2>
           <p className="text-muted-foreground mt-1">Your latest uploaded materials</p>
         </div>
-        <div className="space-y-3">
-          {resources && resources.length > 0 ? (
-            resources.slice(0, 5).map((resource) => (
-              <Card key={resource.id} className="border-0 shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-1">
-                <CardHeader>
-                  <CardTitle className="text-base font-semibold text-foreground flex items-center justify-between">
-                    <span>{resource.name || 'Untitled Resource'}</span>
-                    <span className="text-xs font-normal text-muted-foreground">
-                      {new Date(resource.created_at).toLocaleDateString()}
-                    </span>
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground mb-4">{resource.description || 'No description'}</p>
+        {resources && resources.length > 0 ? (
+          <div className="space-y-4">
+            {resources.slice(0, 5).map((resource) => (
+              <Card key={resource.id} className="border-0 shadow-sm hover:shadow-md transition-all duration-200 bg-white">
+                <CardContent className="p-6">
                   <div className="flex items-center justify-between">
-                    <div className="text-xs text-muted-foreground space-x-4">
-                      {resource.type && <span>📁 {resource.type.toUpperCase()}</span>}
-                      {resource.is_public && <span>🌐 Public</span>}
+                    <div className="flex-1">
+                      <h3 className="text-lg font-semibold text-foreground">{resource.title || 'Untitled Resource'}</h3>
+                      <p className="text-sm text-muted-foreground mt-1">{resource.description || 'No description'}</p>
+                      <div className="flex items-center gap-4 mt-3">
+                        {resource.resource_type && (
+                          <span className="text-xs font-medium text-muted-foreground">
+                            📁 {resource.resource_type.toUpperCase()}
+                          </span>
+                        )}
+                        {resource.is_public && (
+                          <span className="text-xs font-medium text-muted-foreground">
+                            🌐 Public
+                          </span>
+                        )}
+                        <span className="text-xs text-muted-foreground">
+                          {new Date(resource.created_at).toLocaleDateString()}
+                        </span>
+                      </div>
                     </div>
                     <Button asChild variant="ghost" className="text-primary hover:text-primary hover:bg-primary/10">
                       <Link href={`/dashboard/resources/${resource.id}`}>
@@ -89,31 +95,31 @@ export default async function DashboardPage() {
                   </div>
                 </CardContent>
               </Card>
-            ))
-          ) : (
-            <Card className="border-0 shadow-sm bg-muted/30 py-12">
-              <CardContent className="text-center">
-                <div className="flex justify-center mb-4">
-                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
-                    <Upload className="h-8 w-8 text-primary/50" />
-                  </div>
+            ))}
+          </div>
+        ) : (
+          <Card className="border-0 shadow-sm bg-muted/30 py-12">
+            <CardContent className="text-center">
+              <div className="flex justify-center mb-4">
+                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
+                  <Upload className="h-8 w-8 text-primary/50" />
                 </div>
-                <p className="text-foreground font-semibold text-lg">No resources yet</p>
-                <p className="text-sm text-muted-foreground mt-1">Start by uploading your first resource</p>
-                <Button asChild className="mt-6">
-                  <Link href="/dashboard/upload">Upload Now</Link>
-                </Button>
-              </CardContent>
-            </Card>
-          )}
-        </div>
-        
-        {resources && resources.length > 5 && (
-          <Button asChild variant="outline" className="w-full mt-6 h-11">
-            <Link href="/dashboard/resources">View All Resources ({resources.length}) →</Link>
-          </Button>
+              </div>
+              <p className="text-foreground font-semibold text-lg">No resources yet</p>
+              <p className="text-sm text-muted-foreground mt-1">Start by uploading your first resource</p>
+              <Button asChild className="mt-6">
+                <Link href="/dashboard/upload">Upload Now</Link>
+              </Button>
+            </CardContent>
+          </Card>
         )}
       </div>
+        
+      {resources && resources.length > 5 && (
+        <Button asChild variant="outline" className="w-full mt-6 h-11">
+          <Link href="/dashboard/resources">View All Resources ({resources.length}) →</Link>
+        </Button>
+      )}
     </div>
   )
 }
