@@ -6,7 +6,12 @@
     "build": "next build",
     "dev": "next dev",
     "lint": "eslint .",
-    "start": "next start"
+    "start": "next start",
+    "build:web": "next build && next export",
+    "build:android": "npx @bubblewrap/cli build",
+    "build:android:release": "npx @bubblewrap/cli build --release",
+    "update:android": "npx @bubblewrap/cli update",
+    "build:all": "npm run build && npm run build:android"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
